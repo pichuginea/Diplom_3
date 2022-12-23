@@ -43,7 +43,7 @@ public class AuthenticationTests {
 	@DisplayName("User login via home page")
 	@Description("Basic test for positive user authentication via home page")
 	public void loginViaHomePage() {
-		homePage.clickButtonByText("Войти в аккаунт");
+		homePage.clickLoginButton();
 		loginPage.login(EMAIL, PASSWORD);
 
 		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
@@ -62,9 +62,9 @@ public class AuthenticationTests {
 	@DisplayName("User login via registration page")
 	@Description("Basic test for positive user authentication via registration page")
 	public void loginViaRegistrationPage() {
-		homePage.clickButtonByText("Войти в аккаунт");
-		loginPage.clickButtonByText("Зарегистрироваться");
-		registrationPage.clickButtonByText("Войти");
+		homePage.clickLoginButton();
+		loginPage.clickRegistrationButton();
+		registrationPage.clickLoginButton();
 		loginPage.login(EMAIL, PASSWORD);
 
 		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
@@ -74,9 +74,9 @@ public class AuthenticationTests {
 	@DisplayName("User login via password recovery page")
 	@Description("Basic test for positive user authentication via password recovery page")
 	public void loginViaPasswordRecoveryPage() {
-		homePage.clickButtonByText("Войти в аккаунт");
-		loginPage.clickButtonByText("Восстановить пароль");
-		passwordRecoveryPage.clickButtonByText("Войти");
+		homePage.clickLoginButton();
+		loginPage.clickPwRecoveryButton();
+		passwordRecoveryPage.clickLoginButton();
 		loginPage.login(EMAIL, PASSWORD);
 
 		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));

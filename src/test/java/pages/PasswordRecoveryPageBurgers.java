@@ -12,9 +12,12 @@ public class PasswordRecoveryPageBurgers {
 		this.driver = driver;
 	}
 
-	@Step("Click button by label {buttonText}")
-	public void clickButtonByText(String buttonText) {
-		driver.findElement(By.xpath(String.format("//*[text()='%s']", buttonText))).click();
-	}
+	//Кнопка "Войти"
+	private By loginButton = By.xpath("//*[text()='Войти']");
 
+
+	@Step("Click login button")
+	public void clickLoginButton() {
+		driver.findElement(loginButton).click();
+	}
 }

@@ -21,13 +21,14 @@ public class RegistrationPageBurgers {
 	//Поле "Пароль"
 	private By passwordField = By.xpath("//input[@type = 'password']");
 
+	//Кнопка "Зарегистрироваться"
+	private By registrationButton = By.xpath("//*[text()='Зарегистрироваться']");
+
+	//Кнопка "Войти"
+	private By loginButton = By.xpath("//*[text()='Войти']");
+
 	//Область с текстом ошибки
 	private By errorLocator = By.xpath("//p[@class = 'input__error text_type_main-default']");
-
-	@Step("Click button by label {buttonText}")
-	public void clickButtonByText(String buttonText) {
-		driver.findElement(By.xpath(String.format("//*[text()='%s']", buttonText))).click();
-	}
 
 	@Step("Get error text")
 	public String getErrorText() {
@@ -39,6 +40,16 @@ public class RegistrationPageBurgers {
 		driver.findElement(nameField).sendKeys(name);
 		driver.findElement(emailField).sendKeys(email);
 		driver.findElement(passwordField).sendKeys(password);
-		clickButtonByText("Зарегистрироваться");
+		clickRegistrationButton();
+	}
+
+	@Step("Click registration button")
+	public void clickRegistrationButton() {
+		driver.findElement(registrationButton).click();
+	}
+
+	@Step("Click login button")
+	public void clickLoginButton() {
+		driver.findElement(loginButton).click();
 	}
 }

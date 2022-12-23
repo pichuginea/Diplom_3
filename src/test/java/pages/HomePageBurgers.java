@@ -12,6 +12,9 @@ public class HomePageBurgers {
 		this.driver = driver;
 	}
 
+	//Кнопка "Войти в аккаунт"
+	private By loginButton = By.xpath("//*[text()='Войти в аккаунт']");
+
 	//Кнопка "Личный Кабинет"
 	private By profileButton = By.xpath("//*[text()='Личный Кабинет']");
 
@@ -20,6 +23,9 @@ public class HomePageBurgers {
 
 	//Кнопка лого "Stellar Burgers"
 	private By logoButton = By.xpath("//*[@class = 'AppHeader_header__logo__2D0X2']");
+
+	//Кнопка "Конструктор"
+	private By constructorButton = By.xpath("//*[text()='Конструктор']");
 
 	//Заголовок "Булки"
 	private By headingBuns = By.xpath("//*[@id=\"root\"]//h2[1]");
@@ -39,19 +45,29 @@ public class HomePageBurgers {
 	//Вкладка "Начинки"
 	private By tabFilling = By.xpath("//section[1]/div[1]/div[3]/span");
 
-	@Step("Click button by label {buttonText}")
-	public void clickButtonByText(String buttonText) {
-		driver.findElement(By.xpath(String.format("//*[text()='%s']", buttonText))).click();
-	}
-
 	@Step("Is element with text {elementText} displayed")
 	public boolean isElementWithTextDisplayed(String elementText) {
-		return 	driver.findElement(By.xpath(String.format("//*[text()='%s']", elementText))).isDisplayed();
+		return driver.findElement(By.xpath(String.format("//*[text()='%s']", elementText))).isDisplayed();
 	}
 
 	@Step("Click logo button")
 	public void clickLogo() {
 		driver.findElement(logoButton).click();
+	}
+
+	@Step("Click login button")
+	public void clickLoginButton() {
+		driver.findElement(loginButton).click();
+	}
+
+	@Step("Click profile button")
+	public void clickProfileButton() {
+		driver.findElement(profileButton).click();
+	}
+
+	@Step("Click constructor button")
+	public void clickConstructorButton() {
+		driver.findElement(constructorButton).click();
 	}
 
 	@Step("Check Buns heading is displayed")
@@ -73,6 +89,7 @@ public class HomePageBurgers {
 	public void clickBunsTab() {
 		driver.findElement(tabBuns).click();
 	}
+
 	@Step("Click Sauces tab")
 	public void clickSaucesTab() {
 		driver.findElement(tabSauces).click();

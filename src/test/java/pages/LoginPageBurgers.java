@@ -28,11 +28,6 @@ public class LoginPageBurgers {
 	//Кнопка "Восстановить пароль"
 	private By forgotPasswordButton = By.xpath("//*[text() = 'Восстановить пароль']");
 
-	@Step("Click button by label {buttonText}")
-	public void clickButtonByText(String buttonText) {
-		driver.findElement(By.xpath(String.format("//*[text()='%s']", buttonText))).click();
-	}
-
 	@Step("Login")
 	public void login(String email, String password) {
 		driver.findElement(emailField).sendKeys(email);
@@ -45,7 +40,13 @@ public class LoginPageBurgers {
 		return driver.findElement(loginButton).isDisplayed();
 	}
 
-	public void click (By el) {
-		driver.findElement(el).click();
+	@Step("Click registration button")
+	public void clickRegistrationButton() {
+		driver.findElement(registrationButton).click();
+	}
+
+	@Step("Click password recovery button")
+	public void clickPwRecoveryButton() {
+		driver.findElement(registrationButton).click();
 	}
 }

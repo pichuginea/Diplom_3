@@ -32,7 +32,7 @@ public class NavigationTests {
 		homePage = new HomePageBurgers(driver);
 		LoginPageBurgers loginPage = new LoginPageBurgers(driver);
 		profilePage = new ProfilePageBurgers(driver);
-		homePage.clickButtonByText("Войти в аккаунт");
+		homePage.clickLoginButton();
 		loginPage.login(EMAIL, PASSWORD);
 	}
 
@@ -40,7 +40,7 @@ public class NavigationTests {
 	@DisplayName("Navigate profile page")
 	@Description("Check if profile page navigation works")
 	public void navigateToProfilePage() {
-		homePage.clickButtonByText("Личный Кабинет");
+		homePage.clickProfileButton();
 
 		Assert.assertTrue(profilePage.isElementWithTextDisplayed("Выход"));
 	}
@@ -49,8 +49,8 @@ public class NavigationTests {
 	@DisplayName("Navigate constructor tab")
 	@Description("Check if profile page navigation to constructors tab works")
 	public void navigateFromProfilePageToConstructorTab() {
-		homePage.clickButtonByText("Личный Кабинет");
-		homePage.clickButtonByText("Конструктор");
+		homePage.clickProfileButton();
+		homePage.clickConstructorButton();
 
 		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
 	}
@@ -59,7 +59,7 @@ public class NavigationTests {
 	@DisplayName("Navigate logo")
 	@Description("Check if profile page navigation to constructors tab works")
 	public void navigateFromProfilePageToLogo() {
-		homePage.clickButtonByText("Личный Кабинет");
+		homePage.clickProfileButton();
 		homePage.clickLogo();
 
 		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));

@@ -34,8 +34,8 @@ public class RegistrationTests {
 		homePage = new HomePageBurgers(driver);
 		loginPage = new LoginPageBurgers(driver);
 		registrationPage = new RegistrationPageBurgers(driver);
-		homePage.clickButtonByText("Войти в аккаунт");
-		loginPage.clickButtonByText("Зарегистрироваться");
+		homePage.clickLoginButton();
+		loginPage.clickRegistrationButton();
 	}
 
 	@Test
