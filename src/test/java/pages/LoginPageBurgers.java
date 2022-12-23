@@ -33,10 +33,14 @@ public class LoginPageBurgers {
 	}
 
 	@Step("Login")
-	public void login (String email, String password) {
+	public void login(String email, String password) {
 		driver.findElement(emailField).sendKeys(email);
 		driver.findElement(passwordField).sendKeys(password);
 		driver.findElement(loginButton).click();
 	}
 
+	@Step("Check login button is displayed")
+	public boolean isLoginButtonDisplayed() {
+		return driver.findElement(loginButton).isDisplayed();
+	}
 }

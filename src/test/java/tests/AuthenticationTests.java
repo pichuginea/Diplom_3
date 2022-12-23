@@ -92,7 +92,7 @@ public class AuthenticationTests {
 		profilePage.clickButtonByText("Личный Кабинет");
 		profilePage.clickButtonByText("Выход");
 
-		Assert.assertFalse(homePage.isOrderButtonDisplayed());
+		Assert.assertTrue(loginPage.isLoginButtonDisplayed());
 	}
 
 	@After
