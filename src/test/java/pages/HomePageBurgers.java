@@ -45,11 +45,6 @@ public class HomePageBurgers {
 	//Вкладка "Начинки"
 	private By tabFilling = By.xpath("//section[1]/div[1]/div[3]/span");
 
-	@Step("Is element with text {elementText} displayed")
-	public boolean isElementWithTextDisplayed(String elementText) {
-		return driver.findElement(By.xpath(String.format("//*[text()='%s']", elementText))).isDisplayed();
-	}
-
 	@Step("Click logo button")
 	public void clickLogo() {
 		driver.findElement(logoButton).click();
@@ -93,6 +88,11 @@ public class HomePageBurgers {
 	@Step("Click Sauces tab")
 	public void clickSaucesTab() {
 		driver.findElement(tabSauces).click();
+	}
+
+	@Step("Check if order button is displayed")
+	public boolean isOrderButtonDisplayed() {
+		return driver.findElement(orderButton).isDisplayed();
 	}
 
 	@Step("Click Filling tab")

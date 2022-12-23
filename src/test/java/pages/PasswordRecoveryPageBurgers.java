@@ -8,7 +8,7 @@ public class PasswordRecoveryPageBurgers {
 
 	private WebDriver driver;
 
-	public PasswordRecoveryPageBurgers (WebDriver driver) {
+	public PasswordRecoveryPageBurgers(WebDriver driver) {
 		this.driver = driver;
 	}
 

@@ -42,7 +42,7 @@ public class NavigationTests {
 	public void navigateToProfilePage() {
 		homePage.clickProfileButton();
 
-		Assert.assertTrue(profilePage.isElementWithTextDisplayed("Выход"));
+		Assert.assertTrue(profilePage.isLogoutButtonDisplayed());
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class NavigationTests {
 		homePage.clickProfileButton();
 		homePage.clickConstructorButton();
 
-		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
+		Assert.assertTrue(homePage.isOrderButtonDisplayed());
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class NavigationTests {
 		homePage.clickProfileButton();
 		homePage.clickLogo();
 
-		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
+		Assert.assertTrue(homePage.isOrderButtonDisplayed());
 	}
 
 	@Test

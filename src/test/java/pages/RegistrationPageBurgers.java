@@ -8,7 +8,7 @@ public class RegistrationPageBurgers {
 
 	private WebDriver driver;
 
-	public RegistrationPageBurgers (WebDriver driver) {
+	public RegistrationPageBurgers(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -36,7 +36,7 @@ public class RegistrationPageBurgers {
 	}
 
 	@Step("User registration")
-	public void register(String name, String email, String password){
+	public void register(String name, String email, String password) {
 		driver.findElement(nameField).sendKeys(name);
 		driver.findElement(emailField).sendKeys(email);
 		driver.findElement(passwordField).sendKeys(password);
