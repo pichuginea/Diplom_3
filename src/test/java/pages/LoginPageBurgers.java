@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPageBurgers {
 
@@ -42,5 +43,9 @@ public class LoginPageBurgers {
 	@Step("Check login button is displayed")
 	public boolean isLoginButtonDisplayed() {
 		return driver.findElement(loginButton).isDisplayed();
+	}
+
+	public void click (By el) {
+		driver.findElement(el).click();
 	}
 }

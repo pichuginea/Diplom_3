@@ -1,14 +1,86 @@
 package tests;
 
-public class NavigationTests {
-	//Переход в личный кабинет
-	//Проверь переход по клику на «Личный кабинет».
-	//Переход из личного кабинета в конструктор
-	//Проверь переход по клику на «Конструктор» и на логотип Stellar Burgers.
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.*;
 
-	// Раздел «Конструктор»
-	//Проверь, что работают переходы к разделам:
-	//«Булки»,
-	//«Соусы»,
-	//«Начинки».
+import java.util.concurrent.TimeUnit;
+
+public class NavigationTests {
+
+	private WebDriver driver;
+
+	private HomePageBurgers homePage;
+	private ProfilePageBurgers profilePage;
+
+	private static final String EMAIL = "evgeny@ya.ru";
+	private static final String PASSWORD = "evgeny";
+
+	private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
+
+	@Before
+	public void setUp() {
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.get(BASE_URL);
+		homePage = new HomePageBurgers(driver);
+		LoginPageBurgers loginPage = new LoginPageBurgers(driver);
+		profilePage = new ProfilePageBurgers(driver);
+		homePage.clickButtonByText("Войти в аккаунт");
+		loginPage.login(EMAIL, PASSWORD);
+	}
+
+	@Test
+	@DisplayName("Navigate profile page")
+	@Description("Check if profile page navigation works")
+	public void navigateToProfilePage() {
+		homePage.clickButtonByText("Личный Кабинет");
+
+		Assert.assertTrue(profilePage.isElementWithTextDisplayed("Выход"));
+	}
+
+	@Test
+	@DisplayName("Navigate constructor tab")
+	@Description("Check if profile page navigation to constructors tab works")
+	public void navigateFromProfilePageToConstructorTab() {
+		homePage.clickButtonByText("Личный Кабинет");
+		homePage.clickButtonByText("Конструктор");
+
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
+	}
+
+	@Test
+	@DisplayName("Navigate logo")
+	@Description("Check if profile page navigation to constructors tab works")
+	public void navigateFromProfilePageToLogo() {
+		homePage.clickButtonByText("Личный Кабинет");
+		homePage.clickLogo();
+
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
+	}
+
+	@Test
+	@DisplayName("User login via password recovery page")
+	@Description("Basic test for positive user authentication via password recovery page")
+	public void navigateConstructorTabs() {
+		homePage.clickSaucesTab();
+		Assert.assertTrue(homePage.isSaucesDisplayed());
+
+		homePage.clickFillingTab();
+		Assert.assertTrue(homePage.isFillingDisplayed());
+
+		homePage.clickBunsTab();
+		Assert.assertTrue(homePage.isBunsDisplayed());
+	}
+
+	@After
+	public void tearDown() {
+		driver.quit();
+	}
 }

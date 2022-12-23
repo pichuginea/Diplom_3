@@ -17,4 +17,10 @@ public class ProfilePageBurgers {
 		driver.findElement(By.xpath(String.format("//*[text()='%s']", buttonText))).click();
 	}
 
+	@Step("Is element with text {elementText} displayed")
+	public boolean isElementWithTextDisplayed(String elementText) {
+		return 	driver.findElement(By.xpath(String.format("//*[text()='%s']", elementText))).isDisplayed();
+	}
+
+
 }

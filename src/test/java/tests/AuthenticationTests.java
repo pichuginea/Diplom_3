@@ -46,7 +46,7 @@ public class AuthenticationTests {
 		homePage.clickButtonByText("Войти в аккаунт");
 		loginPage.login(EMAIL, PASSWORD);
 
-		Assert.assertTrue(homePage.isOrderButtonDisplayed());
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
 	}
 
 	@Test
@@ -55,8 +55,7 @@ public class AuthenticationTests {
 	public void loginViaProfilePage() {
 		profilePage.clickButtonByText("Личный Кабинет");
 		loginPage.login(EMAIL, PASSWORD);
-
-		Assert.assertTrue(homePage.isOrderButtonDisplayed());
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
 	}
 
 	@Test
@@ -68,7 +67,7 @@ public class AuthenticationTests {
 		registrationPage.clickButtonByText("Войти");
 		loginPage.login(EMAIL, PASSWORD);
 
-		Assert.assertTrue(homePage.isOrderButtonDisplayed());
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
 	}
 
 	@Test
@@ -80,7 +79,7 @@ public class AuthenticationTests {
 		passwordRecoveryPage.clickButtonByText("Войти");
 		loginPage.login(EMAIL, PASSWORD);
 
-		Assert.assertTrue(homePage.isOrderButtonDisplayed());
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
 	}
 
 	@Test

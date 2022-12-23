@@ -46,7 +46,7 @@ public class RegistrationTests {
 		Thread.sleep(1000);
 		loginPage.login(email, password);
 
-		Assert.assertTrue(homePage.isOrderButtonDisplayed());
+		Assert.assertTrue(homePage.isElementWithTextDisplayed("Оформить заказ"));
 	}
 
 	@Test
