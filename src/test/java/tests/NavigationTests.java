@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
-
 import java.util.concurrent.TimeUnit;
 
 public class NavigationTests {
@@ -65,13 +64,12 @@ public class NavigationTests {
 	@Test
 	@DisplayName("Navigate to constructor tabs")
 	@Description("Navigating to constructors tab one by one")
-	public void navigateConstructorTabs() {
+	public void navigateConstructorTabs() throws InterruptedException {
 		homePage.clickSaucesTab();
 		Assert.assertTrue(homePage.isSaucesDisplayed());
-
 		homePage.clickFillingTab();
 		Assert.assertTrue(homePage.isFillingDisplayed());
-
+		Thread.sleep(1000);
 		homePage.clickBunsTab();
 		Assert.assertTrue(homePage.isBunsDisplayed());
 	}
