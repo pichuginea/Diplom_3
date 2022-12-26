@@ -14,17 +14,14 @@ import java.util.concurrent.TimeUnit;
 
 public class RegistrationTests {
 
+	private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 	private WebDriver driver;
-
 	private HomePageBurgers homePage;
 	private LoginPageBurgers loginPage;
 	private RegistrationPageBurgers registrationPage;
-
 	private String name = System.currentTimeMillis() + "name";
 	private String email = System.currentTimeMillis() + "@ya.ru";
 	private String password = System.currentTimeMillis() + "password";
-
-	private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
 	@Before
 	public void setUp() {

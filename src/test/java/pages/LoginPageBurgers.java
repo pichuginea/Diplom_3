@@ -7,25 +7,20 @@ import org.openqa.selenium.WebDriver;
 public class LoginPageBurgers {
 
 	private WebDriver driver;
+	//Поле "Email"
+	private By emailField = By.xpath("//input[@type='text' and @name='name']");
+	//Поле "Пароль"
+	private By passwordField = By.xpath("//input[@type='password' and @name='Пароль']");
+	//Кнопка "Войти"
+	private By loginButton = By.xpath("//*[text() = 'Войти']");
+	//Кнопка "Зарегистрироваться"
+	private By registrationButton = By.xpath("//*[text() = 'Зарегистрироваться']");
+	//Кнопка "Восстановить пароль"
+	private By forgotPasswordButton = By.xpath("//*[text() = 'Восстановить пароль']");
 
 	public LoginPageBurgers(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	//Поле "Email"
-	private By emailField = By.xpath("//input[@type='text' and @name='name']");
-
-	//Поле "Пароль"
-	private By passwordField = By.xpath("//input[@type='password' and @name='Пароль']");
-
-	//Кнопка "Войти"
-	private By loginButton = By.xpath("//*[text() = 'Войти']");
-
-	//Кнопка "Зарегистрироваться"
-	private By registrationButton = By.xpath("//*[text() = 'Зарегистрироваться']");
-
-	//Кнопка "Восстановить пароль"
-	private By forgotPasswordButton = By.xpath("//*[text() = 'Восстановить пароль']");
 
 	@Step("Login")
 	public void login(String email, String password) {

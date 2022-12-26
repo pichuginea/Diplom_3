@@ -7,28 +7,22 @@ import org.openqa.selenium.WebDriver;
 public class RegistrationPageBurgers {
 
 	private WebDriver driver;
+	//Поле "Имя"
+	private By nameField = By.xpath("//label[text() = 'Имя']//following-sibling::input");
+	//Поле "Email"
+	private By emailField = By.xpath("//label[text() = 'Email']//following-sibling::input");
+	//Поле "Пароль"
+	private By passwordField = By.xpath("//label[text() = 'Пароль']//following-sibling::input");
+	//Кнопка "Зарегистрироваться"
+	private By registrationButton = By.xpath("//*[text()='Зарегистрироваться']");
+	//Кнопка "Войти"
+	private By loginButton = By.xpath("//*[text()='Войти']");
+	//Область с текстом ошибки
+	private By errorLocator = By.xpath("//p[@class = 'input__error text_type_main-default']");
 
 	public RegistrationPageBurgers(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	//Поле "Имя"
-	private By nameField = By.xpath("//fieldset[1]//input");
-
-	//Поле "Email"
-	private By emailField = By.xpath("//fieldset[2]//input");
-
-	//Поле "Пароль"
-	private By passwordField = By.xpath("//input[@type = 'password']");
-
-	//Кнопка "Зарегистрироваться"
-	private By registrationButton = By.xpath("//*[text()='Зарегистрироваться']");
-
-	//Кнопка "Войти"
-	private By loginButton = By.xpath("//*[text()='Войти']");
-
-	//Область с текстом ошибки
-	private By errorLocator = By.xpath("//p[@class = 'input__error text_type_main-default']");
 
 	@Step("Get error text")
 	public String getErrorText() {

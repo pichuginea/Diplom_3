@@ -14,18 +14,15 @@ import java.util.concurrent.TimeUnit;
 
 public class AuthenticationTests {
 
+	private static final String EMAIL = "evgeny@ya.ru";
+	private static final String PASSWORD = "evgeny";
+	private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 	private WebDriver driver;
-
 	private HomePageBurgers homePage;
 	private LoginPageBurgers loginPage;
 	private ProfilePageBurgers profilePage;
 	private RegistrationPageBurgers registrationPage;
 	private PasswordRecoveryPageBurgers passwordRecoveryPage;
-
-	private static final String EMAIL = "evgeny@ya.ru";
-	private static final String PASSWORD = "evgeny";
-
-	private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
 	@Before
 	public void setUp() {

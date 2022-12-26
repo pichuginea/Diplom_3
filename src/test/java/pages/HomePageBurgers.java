@@ -7,43 +7,32 @@ import org.openqa.selenium.WebDriver;
 public class HomePageBurgers {
 
 	private WebDriver driver;
+	//Кнопка "Войти в аккаунт"
+	private By loginButton = By.xpath("//*[text()='Войти в аккаунт']");
+	//Кнопка "Личный Кабинет"
+	private By profileButton = By.xpath("//*[text()='Личный Кабинет']");
+	//Кнопка "Оформить заказ"
+	private By orderButton = By.xpath("//*[text()='Оформить заказ']");
+	//Кнопка лого "Stellar Burgers"
+	private By logoButton = By.xpath("//*[@class = 'AppHeader_header__logo__2D0X2']");
+	//Кнопка "Конструктор"
+	private By constructorButton = By.xpath("//*[text()='Конструктор']");
+	//Заголовок "Булки"
+	private By headingBuns = By.xpath("//h2[text() = 'Булки']");
+	//Заголовок "Соусы"
+	private By headingSauces = By.xpath("//h2[text() = 'Соусы']");
+	//Заголовок "Начинки"
+	private By headingFilling = By.xpath("//h2[text() = 'Булки']	");
+	//Вкладка "Булки"
+	private By tabBuns = By.xpath("//span[text() = 'Булки']");
+	//Вкладка "Соусы"
+	private By tabSauces = By.xpath("//span[text() = 'Соусы']");
+	//Вкладка "Начинки"
+	private By tabFilling = By.xpath("//span[text() = 'Начинки']");
 
 	public HomePageBurgers(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	//Кнопка "Войти в аккаунт"
-	private By loginButton = By.xpath("//*[text()='Войти в аккаунт']");
-
-	//Кнопка "Личный Кабинет"
-	private By profileButton = By.xpath("//*[text()='Личный Кабинет']");
-
-	//Кнопка "Оформить заказ"
-	private By orderButton = By.xpath("//*[text()='Оформить заказ']");
-
-	//Кнопка лого "Stellar Burgers"
-	private By logoButton = By.xpath("//*[@class = 'AppHeader_header__logo__2D0X2']");
-
-	//Кнопка "Конструктор"
-	private By constructorButton = By.xpath("//*[text()='Конструктор']");
-
-	//Заголовок "Булки"
-	private By headingBuns = By.xpath("//*[@id=\"root\"]//h2[1]");
-
-	//Заголовок "Соусы"
-	private By headingSauces = By.xpath("//*[@id=\"root\"]//h2[2]");
-
-	//Заголовок "Начинки"
-	private By headingFilling = By.xpath("//*[@id=\"root\"]//h2[3]");
-
-	//Вкладка "Булки"
-	private By tabBuns = By.xpath("//section[1]/div[1]/div[1]/span");
-
-	//Вкладка "Соусы"
-	private By tabSauces = By.xpath("//section[1]/div[1]/div[2]/span");
-
-	//Вкладка "Начинки"
-	private By tabFilling = By.xpath("//section[1]/div[1]/div[3]/span");
 
 	@Step("Click logo button")
 	public void clickLogo() {

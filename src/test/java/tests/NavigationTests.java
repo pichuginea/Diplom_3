@@ -14,15 +14,12 @@ import java.util.concurrent.TimeUnit;
 
 public class NavigationTests {
 
-	private WebDriver driver;
-
-	private HomePageBurgers homePage;
-	private ProfilePageBurgers profilePage;
-
 	private static final String EMAIL = "evgeny@ya.ru";
 	private static final String PASSWORD = "evgeny";
-
 	private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
+	private WebDriver driver;
+	private HomePageBurgers homePage;
+	private ProfilePageBurgers profilePage;
 
 	@Before
 	public void setUp() {
@@ -66,8 +63,8 @@ public class NavigationTests {
 	}
 
 	@Test
-	@DisplayName("User login via password recovery page")
-	@Description("Basic test for positive user authentication via password recovery page")
+	@DisplayName("Navigate to constructor tabs")
+	@Description("Navigating to constructors tab one by one")
 	public void navigateConstructorTabs() {
 		homePage.clickSaucesTab();
 		Assert.assertTrue(homePage.isSaucesDisplayed());

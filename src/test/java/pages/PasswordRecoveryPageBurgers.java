@@ -7,14 +7,12 @@ import org.openqa.selenium.WebDriver;
 public class PasswordRecoveryPageBurgers {
 
 	private WebDriver driver;
+	//Кнопка "Войти"
+	private By loginButton = By.xpath("//*[text()='Войти']");
 
 	public PasswordRecoveryPageBurgers(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	//Кнопка "Войти"
-	private By loginButton = By.xpath("//*[text()='Войти']");
-
 
 	@Step("Click login button")
 	public void clickLoginButton() {
